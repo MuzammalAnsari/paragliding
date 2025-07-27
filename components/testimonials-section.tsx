@@ -71,7 +71,7 @@ export default function TestimonialsSection() {
                     </div>
                   </div>
 
-                  <p className="text-gray-300 text-lg mb-6 leading-relaxed">"{testimonial.text}"</p>
+                  <p className="text-gray-300 text-lg mb-6 leading-relaxed">{testimonial.text}</p>
 
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-4">
