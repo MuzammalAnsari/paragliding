@@ -56,24 +56,22 @@ export default function FeaturesSection() {
   }
 
   const cardVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-    scale: 0.95,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      damping: 20,
+    hidden: {
+      opacity: 0,
+      y: 50,
+      scale: 0.95,
     },
-  },
-}
-
-
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+      },
+    },
+  }
 
   return (
     <section className="py-20 bg-gradient-to-b from-orange-50/50 to-amber-50/30" ref={ref}>
@@ -124,18 +122,16 @@ export default function FeaturesSection() {
           animate={isInView ? "visible" : "hidden"}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {features.map((feature, index) => (
+          {features.map((feature) => (
             <motion.div
               key={feature.title}
               variants={cardVariants}
               whileHover={{
                 y: -15,
-                rotateY: 5,
                 scale: 1.02,
                 transition: { type: "spring", stiffness: 300, damping: 20 },
               }}
               className="group"
-              style={{ transformStyle: "preserve-3d" }}
             >
               <Card className="overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 bg-white/80 backdrop-blur-sm">
                 <div className="relative overflow-hidden">
@@ -149,7 +145,6 @@ export default function FeaturesSection() {
                     />
                   </motion.div>
 
-                  {/* Animated Overlay */}
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-t from-orange-500/20 to-transparent"
                     initial={{ opacity: 0 }}
