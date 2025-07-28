@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion, useScroll, useMotionValueEvent } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Menu, X, Wind } from "lucide-react"
-import Link from "next/link"
+import { useState } from "react";
+import { motion, useScroll, useMotionValueEvent, Variants } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Menu, X, Wind } from "lucide-react";
+import Link from "next/link";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const { scrollY } = useScroll()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsScrolled(latest > 50)
-  })
+    setIsScrolled(latest > 50);
+  });
 
   const menuItems = [
     { name: "Home", href: "/" },
@@ -22,9 +22,9 @@ export default function Header() {
     { name: "Equipment", href: "/equipment" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
-  ]
+  ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -33,20 +33,20 @@ export default function Header() {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: -20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 300,
         damping: 24,
       },
     },
-  }
+  };
 
   return (
     <motion.header
@@ -80,7 +80,7 @@ export default function Header() {
             animate="visible"
             className="hidden md:flex items-center space-x-8"
           >
-            {menuItems.map((item, index) => (
+            {menuItems.map((item) => (
               <motion.div
                 key={item.name}
                 variants={itemVariants}
@@ -178,5 +178,5 @@ export default function Header() {
         </motion.div>
       </div>
     </motion.header>
-  )
+  );
 }
