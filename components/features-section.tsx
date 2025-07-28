@@ -55,17 +55,15 @@ export default function FeaturesSection() {
     },
   }
 
-  const cardVariants : Variants =  {
+  const cardVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 50,
-    rotateX: -10,
     scale: 0.95,
   },
   visible: {
     opacity: 1,
     y: 0,
-    rotateX: 0,
     scale: 1,
     transition: {
       type: 'spring',
@@ -73,7 +71,8 @@ export default function FeaturesSection() {
       damping: 20,
     },
   },
-};
+}
+
 
 
   return (
