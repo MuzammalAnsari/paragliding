@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useInView } from "framer-motion"
+import { motion, useInView, Variants } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Star, Clock, Shield, Award, ArrowRight } from "lucide-react"
@@ -55,26 +55,26 @@ export default function FeaturesSection() {
     },
   }
 
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 100,
-      rotateX: -15,
-      scale: 0.9,
+  const cardVariants : Variants =  {
+  hidden: {
+    opacity: 0,
+    y: 50,
+    rotateX: -10,
+    scale: 0.95,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 100,
+      damping: 20,
     },
-    visible: {
-      opacity: 1,
-      y: 0,
-      rotateX: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-        duration: 0.8,
-      },
-    },
-  }
+  },
+};
+
 
   return (
     <section className="py-20 bg-gradient-to-b from-orange-50/50 to-amber-50/30" ref={ref}>
